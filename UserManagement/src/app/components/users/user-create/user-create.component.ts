@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User, UserRequest } from 'src/app/core/models/user';
-import { BankAccount } from 'src/app/core/models/bank-account';
 import { States } from 'src/app/core/models/states.enum';
 import { AdministrationService } from 'src/app/core/services/administration.service';
+import { CreateUserRequest } from 'src/app/core/models/user';
 
 @Component({
   selector: 'app-user-create',
@@ -13,7 +12,12 @@ export class UserCreateComponent implements OnInit {
 
   constructor(private adminService: AdministrationService) { }
 
-  user: User = new User();
+  userRequest: CreateUserRequest = {
+    name: '',
+    lastName: '',
+    state: States.active,
+    account: { iban: '', state: States.active }
+  };
 
   ngOnInit() {
 
@@ -21,24 +25,19 @@ export class UserCreateComponent implements OnInit {
 
   submit() {
     if (this.validateData()) {
-      let request: UserRequest = this.setRequest();
-      this.adminService.postCreateUser(request).subscribe(data => {});
+      this.adminService.postCreateUser(this.userRequest).subscribe(data => { });
     }
   }
 
   validateData(): boolean {
-    let result: boolean = false;
+    let result: boolean;
 
-    return result;
-  }
-
-  setRequest(): UserRequest {
-    let result: UserRequest = {
-      name: this.user.name,
-      lastName: this.user.lastName,
-      state: this.user.state,
-      account: this.user.account
-    };
+    if (this.userRequest.name == '' || this.userRequest.lastName == '' || this.userRequest.account.iban == '') {
+      result = false;
+    }
+    else {
+      result = true
+    }
 
     return result;
   }

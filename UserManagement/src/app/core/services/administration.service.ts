@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserRequest } from '../models/user';
+import { CreateUserRequest } from '../models/user';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,10 +8,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdministrationService {
 
-  constructor(  private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  postCreateUser(request: UserRequest): Observable<any>{
+  postCreateUser(request: CreateUserRequest): Observable<any> {
     var body = JSON.stringify(request);
+    return this.http.post<any>('url', body);
+  }
+
+  postDeleteUser(idUser: string): Observable<any> {
+    var body = JSON.stringify(idUser);
     return this.http.post<any>('url', body);
   }
 }

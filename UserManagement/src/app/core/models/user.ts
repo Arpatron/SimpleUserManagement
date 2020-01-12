@@ -9,7 +9,7 @@ export class User {
     state: States;
 }
 
-export class UserRequest{
+export class CreateUserRequest{
     name: string;
     lastName: string;
     account: BankAccount;
