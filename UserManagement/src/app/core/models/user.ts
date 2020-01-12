@@ -5,6 +5,6 @@ export class User {
     id: number;
     name: string;
     lastName: string;
-    accounts: BankAccount[];
+    accounts: BankAccount[] = [];
     state: States;
 }

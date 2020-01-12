@@ -9,6 +9,7 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { PageNotFoundComponent } from './components/others/page-not-found/page-not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PageNotFoundComponent } from './components/others/page-not-found/page-n
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [HomeComponent]
