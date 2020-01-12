@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { UserDeleteComponent } from './components/users/user-delete/user-delete.component';
@@ -13,7 +12,6 @@ import { PageNotFoundComponent } from './components/others/page-not-found/page-n
 
 @NgModule({
   declarations: [
-    AppComponent,
     HomeComponent,
     UserCreateComponent,
     UserDeleteComponent,
@@ -27,6 +25,6 @@ import { PageNotFoundComponent } from './components/others/page-not-found/page-n
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule { }
