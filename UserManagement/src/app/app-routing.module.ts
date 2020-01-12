@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './components/others/page-not-found/page-n
 
 
 const routes: Routes = [
-  { path: 'editUser', component: UserEditComponent },
+  { path: 'editUser/:id', component: UserEditComponent },
   { path: 'deleteUser', component: UserDeleteComponent },
   { path: 'detail/:id', component: UserDetailComponent },
   { path: 'newUser', component: UserCreateComponent },

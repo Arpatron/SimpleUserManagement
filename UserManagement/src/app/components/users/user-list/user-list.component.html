@@ -10,13 +10,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor='let user of users'>
+            <tr *ngFor='let user of users' (click)="seeDetails(user.id)">
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.lastName }}</td>
                 <td>{{ user.account.iban | ibanFormat}}</td>
                 <td>
-                    <a class="btn btn-sm btn-warning" [routerLink]="['/detail', user.id]">Edit</a>
+                    <a class="btn btn-sm btn-warning" [routerLink]="['/editUser', user.id]">Edit</a>
                     <button class="btn btn-sm btn-danger" (click)="deleteUser()">Delete</button>
                 </td>
             </tr>

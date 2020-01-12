@@ -1,5 +1,5 @@
-import { User } from './user';
+import { IUser } from './user';
 
 export class Administrator {
-    users: User[];
+    users: IUser[];
 }

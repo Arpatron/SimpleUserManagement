@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/core/models/user';
+import { IUser } from 'src/app/core/models/user';
 import { States } from 'src/app/core/models/states.enum';
+import { Router } from '@angular/router';
+import { AdministrationService } from 'src/app/core/services/administration.service';
 
 @Component({
   selector: 'app-user-list',
@@ -9,17 +11,34 @@ import { States } from 'src/app/core/models/states.enum';
 })
 export class UserListComponent implements OnInit {
 
-  users: User[] = [];
+  users: IUser[] = [];
+  errorMessage = '';
 
-  constructor() { }
+  constructor(private adminService: AdministrationService,
+    private router: Router) { }
 
   ngOnInit() {
     this.mockData();
+    // this.getData();
+  }
+
+  getData() {
+    this.adminService.getUsers().subscribe({
+      next: users => {
+        this.users = users;
+      },
+      error: err => this.errorMessage = err
+    });
   }
 
   deleteUser() {
 
   }
+
+  seeDetails(id: number){
+    this.router.navigate(['/detail', id]);
+  }
+
 
   mockData() {
     this.users.push({

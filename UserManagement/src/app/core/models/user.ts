@@ -1,7 +1,7 @@
 import { BankAccount } from './bank-account';
 import { States } from './states.enum';
 
-export class User {
+export interface IUser {
     id: number;
     name: string;
     lastName: string;
