@@ -11,6 +11,7 @@ import { UserDetailComponent } from './components/users/user-detail/user-detail.
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { PageNotFoundComponent } from './components/others/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { IbanFormatPipe } from './core/shared/pipes/iban-format.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserEditComponent,
     UserDetailComponent,
     UserListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    IbanFormatPipe
   ],
   imports: [
     BrowserModule,

@@ -16,20 +16,8 @@
     <div class="form-group">
         <div class="row">
             <div class="col-md-12">
-                <label for="accountIban">Accounts</label>
-                <div *ngFor='let account of formAccounts; let i = index'>
-                    <div class="row">
-                        <div class="col-sm-11">
-                            <!-- <input [(ngModel)]='account.iban' name="account.iban" type="text" class="form-control" placeholder="Iban" value="{{account[i].iban}}"> -->
-                            <input [(ngModel)]='account.iban' name="account.iban" type="text" class="form-control" placeholder="Iban" value="{{account.iban}}">
-                        </div>
-                        <div class="col-sm-1">
-                            <button class="btn btn-sm btn-danger" (click)="dropAccount(account.iban)">X</button>
-                        </div>
-                    </div>
-                    <div class="separator"></div>
-                </div>
-                <button class="btn btn-sm btn-info" (click)="addAccount()">Add</button>
+                <label for="accountIban">Account</label>
+                <input [(ngModel)]='user.account.iban' name="user.account.iban" type="text" class="form-control" placeholder="Iban">
             </div>
         </div>
     </div>

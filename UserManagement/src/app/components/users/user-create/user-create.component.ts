@@ -14,18 +14,13 @@ export class UserCreateComponent implements OnInit {
   constructor(private adminService: AdministrationService) { }
 
   user: User = new User();
-  formAccounts: BankAccount[] = [];
 
   ngOnInit() {
-    this.formAccounts.push({
-      iban: '',
-      state: States.active
-    });
+
   }
 
   submit() {
     if (this.validateData()) {
-      this.user.accounts = this.formAccounts;
       let request: UserRequest = this.setRequest();
       this.adminService.postCreateUser(request).subscribe(data => {});
     }
@@ -42,25 +37,9 @@ export class UserCreateComponent implements OnInit {
       name: this.user.name,
       lastName: this.user.lastName,
       state: this.user.state,
-      accounts: this.user.accounts
+      account: this.user.account
     };
 
     return result;
-  }
-
-  addAccount() {
-    this.formAccounts.push({
-      iban: '',
-      state: States.active
-    });
-  }
-
-  dropAccount(iban: string) {
-    let accountToRemove: BankAccount = this.formAccounts.find(x => x.iban == iban);
-    let accountIndex: number = this.formAccounts.indexOf(accountToRemove);
-    this.formAccounts.splice(accountIndex, 1);
-    if (this.formAccounts.length == 0) {
-      this.addAccount();
-    }
   }
 }
