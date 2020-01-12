@@ -8,3 +8,10 @@ export class User {
     accounts: BankAccount[] = [];
     state: States;
 }
+
+export class UserRequest{
+    name: string;
+    lastName: string;
+    accounts: BankAccount[] = [];
+    state: States;
+}

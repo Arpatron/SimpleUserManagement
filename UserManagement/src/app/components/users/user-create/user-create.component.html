@@ -3,11 +3,13 @@
         <div class="row">
             <div class="col-md-6">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name" required minlength="4">
+                <input [(ngModel)]='user.name' name="user.name" type="text" class="form-control" placeholder="Name"
+                    required minlength="4">
             </div>
             <div class="col-md-6">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                <input [(ngModel)]='user.lastName' name="lastName" type="text" class="form-control"
+                    placeholder="Last Name">
             </div>
         </div>
     </div>
@@ -15,10 +17,18 @@
         <div class="row">
             <div class="col-md-12">
                 <label for="accountIban">Accounts</label>
-                <div id="accounts">
-                    <input type="text" class="form-control" placeholder="Iban">
+                <div *ngFor='let account of formAccounts; let i = index'>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <!-- <input [(ngModel)]='account.iban' name="account.iban" type="text" class="form-control" placeholder="Iban" value="{{account[i].iban}}"> -->
+                            <input [(ngModel)]='account.iban' name="account.iban" type="text" class="form-control" placeholder="Iban" value="{{account.iban}}">
+                        </div>
+                        <div class="col-sm-1">
+                            <button class="btn btn-sm btn-danger" (click)="dropAccount(account.iban)">X</button>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
                 </div>
-                <div class="separator"></div>
                 <button class="btn btn-sm btn-info" (click)="addAccount()">Add</button>
             </div>
         </div>
